@@ -23,7 +23,7 @@ void createStack(){
 
 
 bool isFull() {
-    return myStack.top == myStack.size - 1;
+    return myStack.top == myStack.size - 1; //size is 5, however, the array starts from 0
 }
 
 
@@ -51,7 +51,7 @@ int pop() {
     //1. make sure the stack is not empty
     if (isEmpty()){
         printf("Sorry! the stack is empty\n");
-        return;
+        return -1;
     }
     //2. getting the element to return
     int element = myStack.data[myStack.top];
