@@ -17,6 +17,26 @@ bool isEmpty() {
 }
 
 
+void printQueue() {
+   node_t* current = front;
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+    printf("\n");
+
+}
+
+
+int dequeue() {
+    if (isEmpty()) {
+        printf("Queue is empty\n");
+        return -1;
+    }
+    int value = front->data;
+    front = front->next;
+    return value;
+}
 
 
 
@@ -44,5 +64,9 @@ int main() {
     enqueue (10);
     enqueue (20);
     enqueue (30);
+    printQueue();
+    printf("dequeue %d\n", dequeue());
+    printQueue();
+
     return 0;
 }
