@@ -27,6 +27,10 @@ void printQueue() {
 
 }
 
+// int dequeue(int index) {
+
+// }
+
 
 int dequeue() {
     if (isEmpty()) {
@@ -59,7 +63,6 @@ void enqueue(int value) {
     }
 }
 
-
 int main() {
     enqueue (10);
     enqueue (20);
@@ -67,6 +70,5 @@ int main() {
     printQueue();
     printf("dequeue %d\n", dequeue());
     printQueue();
-
     return 0;
 }
