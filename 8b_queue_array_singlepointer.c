@@ -41,7 +41,6 @@ int dequeue(queue_t *queue) {
         printf("the queue is empty\n");
         return; // this is not really good!
     }
-
     int element = queue->data[0];
     //shift all the elements to the left
     int i;
