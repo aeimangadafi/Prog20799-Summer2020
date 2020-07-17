@@ -12,9 +12,9 @@ typedef struct queue {
 } queue_t;
 
 
-queue_t *initQueue(int size) {
+queue_t *CreateQueue(int size) {
     queue_t *queue;
-    queue = (queue_t *) malloc(size * sizeof(queue_t));
+    queue = (queue_t *) malloc(sizeof(queue_t));
     queue->size = size;
     queue->rear = 0;
     queue->front = 0;
