@@ -66,6 +66,21 @@ int dequeue(queue_t *queue) {
 
 
 int main() {
+    int queuesize = 1000000;
+    queue_t *myqueue = CreateQueue(queuesize);
+    int i;
+    for ( i = 0; i < queuesize - 1; i++)
+    {
+        enqueue(myqueue,i);
+    }
+    printf("enqueue is done\n");
+    //printQueue(myqueue);
 
+    for ( i = 0; i < queuesize -1 ; i++)
+    {
+        dequeue(myqueue);
+    }
+
+    printf("dequeue is done\n");
     return 0;
 }
