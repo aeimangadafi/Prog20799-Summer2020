@@ -12,14 +12,18 @@ void swap (int *a, int *b) {
 
 void bubbleSort(int array[], int size) {
     int i, j;
+    bool swapped;
     for (i = 0; i < size - 1 ; i++)
     {
+        swapped = false;
         for (j = 0; j < size - 1 - i ; j++) {
             if (array[j] > array[j+1]) {
                 swap(&array[j], &array[j+1]);
+                swapped = true;
             }
         }
-
+        if (!swapped )
+            break;
     }
 
 
@@ -35,7 +39,7 @@ void printArray(int array[], int size) {
 }
 
 int main() {
-    int a[]= {10,44,2,4,14,3,5,1,5,90};
+    int a[]= {2,2,2,4,3};
     int size = sizeof(a)/sizeof(int);
     bubbleSort(a, size);
     printArray (a, size);
