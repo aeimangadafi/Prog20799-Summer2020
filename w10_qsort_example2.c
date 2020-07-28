@@ -15,7 +15,20 @@ typedef struct inventory_item
 // Comparison function for sorting inventory items in increasing order by price
 int cmpfunc(const void *a, const void *b)
 {
-    //todo: implement this function
+    double priceA = ((InventoryItem *)a)->price; // Get the price of item 'a'
+    double priceB = ((InventoryItem *)b)->price; // Get the price of item ''
+    if (priceA == priceB)
+    {
+        return 0;
+    }
+    else if (priceA > priceB)
+    {
+        return 1;
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 int main(int argc, char **argv)
@@ -38,9 +51,10 @@ int main(int argc, char **argv)
 
     // Sort the array in increasing order by price -- see cmpfunc()
     //todo: call the qsort function
+    qsort(list, size, sizeof(InventoryItem), cmpfunc);
 
     printf("\nAfter sorting the list is: \n");
-    for ( i = 0; i < size; i++)
+    for (i = 0; i < size; i++)
     {
         printf("  %s, $%.2f, quantity %d\n", list[i].name, list[i].price, list[i].quantity);
     }

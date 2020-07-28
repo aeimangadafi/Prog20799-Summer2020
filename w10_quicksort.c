@@ -10,7 +10,7 @@ void swap(int *x, int *y)
 
 int partition(int A[], int l, int h)
 {
-    int pivot = A[l];
+    int pivot = A[l]; // slecting the first number in the array
     int i = l, j = h;
     do
     {
@@ -55,8 +55,10 @@ int main()
     int *A, n = 10, i;
     A = (int *)malloc(n * sizeof(int));
     for (i = 0; i < n; i++)
-        A[i] = generateRandomNumber(0,1022);
+        A[i] = generateRandomNumber(0,100);
+
     QuickSort(A, 0, n);
+
     for (i = 0; i < n; i++)
         printf("%d ", A[i]);
     printf("\n");
