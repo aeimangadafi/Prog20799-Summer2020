@@ -25,8 +25,6 @@ void bubbleSort(int array[], int size) {
         if (!swapped )
             break;
     }
-
-
 }
 
 void printArray(int array[], int size) {
@@ -38,10 +36,24 @@ void printArray(int array[], int size) {
     printf("\n");
 }
 
+
+int generateRandomNumber(int lower, int upper) {
+    return (rand() % (upper - lower + 1)) + lower;
+}
+
 int main() {
-    int a[]= {2,2,2,4,3};
-    int size = sizeof(a)/sizeof(int);
-    bubbleSort(a, size);
-    printArray (a, size);
+
+    int *a;
+    int arraysize = 1000000;
+    int i;
+
+    srand(time(0));
+    a = (int *) malloc(arraysize * sizeof(int));
+    for (i = 0; i < arraysize; i++)
+        a[i] = generateRandomNumber(0,1000);
+
+
+    bubbleSort(a, arraysize);
+    printArray (a, arraysize);
     return 0;
 }
