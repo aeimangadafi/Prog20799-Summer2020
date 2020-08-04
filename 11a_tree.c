@@ -37,6 +37,37 @@ void preorder(tree_node_t *node)
     }
 }
 
+void inorder(tree_node_t *node)
+{
+    if (node != NULL)
+    {
+        inorder(node->left);
+        visit(node);
+        inorder(node->right);
+    }
+}
+
+
+void postorder(tree_node_t *node)
+{
+    if (node != NULL)
+    {
+        postorder(node->left);
+        postorder(node->right);
+        visit(node);
+    }
+}
+
+
+int nodesCount(tree_node_t *node) {
+    if (node == NULL) // if root is null (tree is empty) or if we reach a leaf
+        return 0;
+
+    return 1 + nodesCount(node->left) + nodesCount(node->right);
+}
+
+
+
 int main()
 {
     tree_node_t *root = newNode(8);
@@ -53,6 +84,16 @@ int main()
     printf("preorder: ");
     preorder(root);
     printf("\n");
+
+    printf("inorder: ");
+    inorder(root);
+    printf("\n");
+
+    printf("postorder: ");
+    postorder(root);
+    printf("\n");
+
+    printf("The tree has %d nodes", nodesCount(root));
 
 
     return 0;
