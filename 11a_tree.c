@@ -67,19 +67,44 @@ int nodesCount(tree_node_t *node) {
 }
 
 
+tree_node_t *insert(tree_node_t *node, int number)
+{
+    //todo: deal with doublicates
+
+    if (node == NULL) {
+        return newNode(number);
+    }
+
+    if (number < node->data.number)
+        node->left  = insert(node->left, number);
+    else
+        node->right = insert(node->right, number);
+    return node;
+}
+
+// null: if the number doesn't exist in tree, otherwise it will return a pointer to the node containing the number
+tree_node_t* search(tree_node_t *root, int number) {
+
+}
 
 int main()
 {
     tree_node_t *root = newNode(8);
-    root->left = newNode(3);
-    root->left->left = newNode(1);
-    root->left->right = newNode(6);
-    root->left->right->left = newNode(4);
-    root->left->right->right = newNode(7);
+    insert(root, 5);
+    insert(root, 1);
+    insert(root, 6);
+    insert(root, 4);
+    insert(root, 10);
 
-    root->right = newNode(10);
-    root->right->right = newNode(14);
-    root->right->right->left = newNode(13);
+    // root->left = newNode(3);
+    // root->left->left = newNode(1);
+    // root->left->right = newNode(6);
+    // root->left->right->left = newNode(4);
+    // root->left->right->right = newNode(7);
+
+    // root->right = newNode(10);
+    // root->right->right = newNode(14);
+    // root->right->right->left = newNode(13);
 
     printf("preorder: ");
     preorder(root);
