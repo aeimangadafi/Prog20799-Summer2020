@@ -85,6 +85,15 @@ tree_node_t *insert(tree_node_t *node, int number)
 // null: if the number doesn't exist in tree, otherwise it will return a pointer to the node containing the number
 tree_node_t* search(tree_node_t *root, int number) {
 
+    if (root==NULL || number == root->data.number)
+        return root;
+
+    if (number > root->data.number) {
+        search(root->right, number);
+    } else {
+        search(root->left, number);
+    }
+
 }
 
 int main()
